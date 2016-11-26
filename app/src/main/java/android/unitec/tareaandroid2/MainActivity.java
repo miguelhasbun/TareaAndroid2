@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
             monto = Double.parseDouble(etmonto.getText().toString());
             años = Integer.parseInt(etaños.getText().toString());
     //LA CONDICIÓN ESTÁ BIEN PERO POR ALGUNA RAZÓN TIRA CANTIDAD NO ADMITIDAS Y EL OTRO MSJ DE ABAJO REVISAR
-            if (monto<5000 && años==0){
-                Toast.makeText(this, "Cantidades no admitidas", Toast.LENGTH_LONG).show();
+            if (monto<5000 || años<=0){
+                Toast.makeText(this, "Años deben ser mayor que 0 y monto mayor que 5000", Toast.LENGTH_LONG).show();
                 return false;
             }else{
                 return true;
