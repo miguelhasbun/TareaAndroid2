@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText etmonto, etaños ;
+    private EditText etmonto, etaños;
     final static String TYPE = "tipo";
     final static String AMOUNT = "monto";
     final static String YEAR = "año";
@@ -21,22 +21,32 @@ public class MainActivity extends AppCompatActivity {
         etaños = (EditText) findViewById(R.id.etaños);
     }
 
-        private boolean validarMonto() {
+    private boolean validarMonto() {
+        try {
             double monto = 0;
             int años = 0;
             monto = Double.parseDouble(etmonto.getText().toString());
             años = Integer.parseInt(etaños.getText().toString());
-    //LA CONDICIÓN ESTÁ BIEN PERO POR ALGUNA RAZÓN TIRA CANTIDAD NO ADMITIDAS Y EL OTRO MSJ DE ABAJO REVISAR
-            if (monto<5000 || años<=0){
+
+            //LA CONDICIÓN ESTÁ BIEN PERO POR ALGUNA RAZÓN TIRA CANTIDAD NO ADMITIDAS Y EL OTRO MSJ DE ABAJO REVISAR
+            if (monto < 5000 || años <= 0) {
                 Toast.makeText(this, "Años deben ser mayor que 0 y monto mayor que 5000", Toast.LENGTH_LONG).show();
+
                 return false;
-            }else{
-                return true;
+
             }
+        } catch (Exception e) {
+            Toast.makeText(this, "Ingrese valores", Toast.LENGTH_SHORT).show();
         }
+
+        return true;
+    }
+
+
 
         public void btnCar(View view){
             if (validarMonto()) {
+
                 double monto = 0;
                 int años = 0;
                 try {
@@ -45,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 } catch(RuntimeException e) {
                     Toast.makeText(this, "Datos erróneos", Toast.LENGTH_SHORT).show();
                     return;
+                }catch(Exception e){
+                    Toast.makeText(this, "Ingrese Valores", Toast.LENGTH_SHORT).show();
                 }
 
                 Intent i = new Intent(this, INFORMATIONACTIVITY.class);
@@ -67,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
                 } catch(RuntimeException e) {
                     Toast.makeText(this, "Datos erróneos", Toast.LENGTH_SHORT).show();
                     return;
+                }catch(Exception e){
+                    Toast.makeText(this, "Ingrese Valores", Toast.LENGTH_SHORT).show();
                 }
 
                 Intent i = new Intent(this, INFORMATIONACTIVITY.class);
@@ -90,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
                 } catch(RuntimeException e) {
                     Toast.makeText(this, "Datos erróneos", Toast.LENGTH_SHORT).show();
                     return;
+                }catch(Exception e){
+                    Toast.makeText(this, "Ingrese Valores", Toast.LENGTH_SHORT).show();
                 }
 
                 Intent i = new Intent(this, INFORMATIONACTIVITY.class);
