@@ -18,14 +18,15 @@ public class INFORMATIONACTIVITY extends AppCompatActivity {
     private String prestamo;
     public double tasa= 0.35;
     private double monto, ajustado, intereses, montotota, cuota;
-    private static Calendar fecha=Calendar.getInstance();;
-    private int year;
 
+    private int year;
+    Calendar fecha;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informationactivity);
         //FALTA QUE APAREZCA EL TOAST QUE DICE EL TIPO Y LA CANTIDAD DE AÑOS.
+        fecha=Calendar.getInstance();
         tvprestamo = (TextView)findViewById(R.id.tvPrestamo);
         tvmonto = (TextView)findViewById(R.id.tvmonto);
         tvaño = (TextView)findViewById(R.id.tvaño);
@@ -51,7 +52,7 @@ public class INFORMATIONACTIVITY extends AppCompatActivity {
         intereses = tasa * monto * year;
         montotota = monto + ajustado + intereses;
         cuota = montotota / (12*year);
-        fecha.set(Calendar.YEAR, +year);
+
 
         tvprestamo.setText(prestamo);
         tvmonto.setText("Lps. " + monto);
@@ -60,6 +61,8 @@ public class INFORMATIONACTIVITY extends AppCompatActivity {
         tvIntereses.setText("Lps. " + intereses);
         tvTotal.setText("Lps. " + montotota);
         tvCuota.setText("Lps. " + cuota);
+        fecha.add(Calendar.YEAR,year);
+        tvFecha.setText(""+fecha.getTime());
     //FALTA IMPRIMIR LA FECHA FIN DE PAGO.
     }
 
