@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra(AMOUNT, monto);
                 i.putExtra(YEAR, años);
                 startActivity(i);
+                Toast.makeText(this, "Prestamo Auto calculado en "+años+" años", Toast.LENGTH_SHORT).show();
             } else
                 Toast.makeText(this, "No se le pudo brindar el préstamo solicitado", Toast.LENGTH_SHORT).show();
             }
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra(AMOUNT, monto);
                 i.putExtra(YEAR, años);
                 startActivity(i);
+                Toast.makeText(this, "Prestamo Vivienda calculado en "+años+" años", Toast.LENGTH_SHORT).show();
             } else
                 Toast.makeText(this, "No se le pudo brindar el préstamo solicitado", Toast.LENGTH_SHORT).show();
         }
@@ -95,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra(AMOUNT, monto);
                 i.putExtra(YEAR, años);
                 startActivity(i);
+                Toast.makeText(this, "Prestamo Personal calculado en "+años+" años", Toast.LENGTH_SHORT).show();
             } else
                 Toast.makeText(this, "No se le pudo brindar el préstamo solicitado", Toast.LENGTH_SHORT).show();
         }
