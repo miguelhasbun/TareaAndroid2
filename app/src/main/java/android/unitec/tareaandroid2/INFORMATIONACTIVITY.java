@@ -25,7 +25,7 @@ public class INFORMATIONACTIVITY extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informationactivity);
-        //FALTA QUE APAREZCA EL TOAST QUE DICE EL TIPO Y LA CANTIDAD DE AÑOS.
+
         fecha=Calendar.getInstance();
         tvprestamo = (TextView)findViewById(R.id.tvPrestamo);
         tvmonto = (TextView)findViewById(R.id.tvmonto);
@@ -63,7 +63,7 @@ public class INFORMATIONACTIVITY extends AppCompatActivity {
         tvCuota.setText("Lps. " + cuota);
         fecha.add(Calendar.YEAR,year);
         tvFecha.setText(""+fecha.getTime());
-    //FALTA IMPRIMIR LA FECHA FIN DE PAGO.
+
     }
 
     public void COTIZAR(View view){
